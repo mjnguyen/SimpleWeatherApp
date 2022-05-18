@@ -58,6 +58,12 @@ public class WeatherService: NSObject {
                     print(error)
                     completion(false, nil, error)
                 }
+            } else if
+                let response = response as? HTTPURLResponse,
+                (400...499).contains(response.statusCode) {
+
+                let error = NSError(domain: "CityNameNotFound", code: response.statusCode)
+                completion(false, nil, error)
             } else if let error = error {
                 print("HTTP Request Failed \(error)")
                 completion(false, nil, error)
