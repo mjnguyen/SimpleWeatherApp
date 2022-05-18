@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import React
 
 class ViewController: UIViewController {
 
@@ -48,23 +47,6 @@ class ViewController: UIViewController {
             searchButton.widthAnchor.constraint(equalToConstant: 200)
         ])
     }
-
-    override func loadView() {
-        loadReactNativeView()
-    }
-
-    func loadReactNativeView() {
-        let jsCodeLocation = URL(string: "http://localhost:8081/index.bundle?platform=ios")!
-
-        let rootView = RCTRootView(
-            bundleURL: jsCodeLocation,
-            moduleName: "YourApp",
-            initialProperties: nil,
-            launchOptions: nil
-        )
-        self.view = rootView
-    }
-
 
 }
 
