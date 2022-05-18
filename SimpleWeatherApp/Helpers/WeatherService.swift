@@ -24,7 +24,7 @@ public class WeatherService: NSObject {
     }
 
     private func getData(endpoint: String, completion: @escaping (Data?, URLResponse?, NSError?) -> Void) {
-        let urlString = baseUri + endpoint + "&appid=\(apiKey)"
+        let urlString = baseUri + endpoint + "&appid=\(apiKey)&units=imperial"
         guard let url = URL(string: urlString) else { return }
 
         let task = URLSession.shared.dataTask(with: url) { data, response, error in
